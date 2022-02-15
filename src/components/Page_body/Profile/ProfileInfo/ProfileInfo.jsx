@@ -12,18 +12,27 @@ const Post = (props) => {
 
     let fullName = props.userState.fullName; 
     fullName = fullName.replace(/( |^)[а-яёa-z]/g, function(x){ return x.toUpperCase(); })
-    
-   
+
     return (
         <div>
             <div className={classes.banner}>
-                <img src="https://picsum.photos/1080/200/" alt="banner"/>
+                {
+                    props.userState.userId === 22474
+                        ? <img src='https://i.picsum.photos/id/1021/1080/200.jpg?hmac=8UH4yjL7e7ZntbvbKHGqzIBotNwS5Smo7hSCEO6_AiE' alt="banner"/> 
+                        : <img src={`https://picsum.photos/1080/200?random=${props.userState.userId}`} alt="alt"/> 
+                }
             </div>
            
 
             <div className={classes.description}>
                 <div className={classes.description__avatar}>
-                     <img src={props.userState.photos.small} alt='c' />
+
+                    {
+                          !props.userState.photos.large
+                          ?  <img src={`https://picsum.photos/80/80?random=${props.userState.userId}`} alt="alt"/> 
+                          : null
+                    }
+                     
                 </div>
 
                 <div className={classes.description__text}>
@@ -32,8 +41,12 @@ const Post = (props) => {
                     </div>
 
                     <div className={classes.description__subtitle}>
-                        about me: {props.userState.aboutMe}<br/>
-                        VK : {props.userState.contacts.vk}<br/>
+                        <div>{props.userState.contacts.vk
+                                ? `VK: ${props.userState.contacts.vk}`: `VK: vk.com/f_to_pay_respect.  `}
+                        </div>
+                        <div>{props.userState.aboutMe 
+                                ? `about me: ${props.userState.aboutMe}`: `about me: Lorem ipsum dolor sit amet.  `}
+                        </div>
                     </div>
                 </div>
             </div> 

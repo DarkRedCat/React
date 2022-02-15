@@ -1,8 +1,7 @@
 import contact_data from './components/contact_data'
-import myData  from './components/myPersonalData'
+
 
 let initialState = {
-    myData : myData,
     contact_data: contact_data
 }
 

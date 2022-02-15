@@ -6,7 +6,7 @@ import Load from '../../common/Load'
 
 import {follow,unFollow,setUsers,setCurrentPage,
     setTotalUserCount,toggleisFetching} from '../../../redux/reducer/FindUsers_reducer' 
-
+import {gg} from '../../../redux/reducer/Profile_reducer'
 
 
 import FindUsers from './FindUsers'
@@ -47,6 +47,7 @@ class UsersContainer extends React.Component {
             currentPage : this.props.currentPage,
 
             PageChanged : this.onPageChanged,
+            gg : this.props.gg,
         }
        
     return(
@@ -71,7 +72,7 @@ let mapStateToProps = (state) => {
 
 const FindUsersContainer = connect(mapStateToProps, {
     follow,unFollow,setUsers,setCurrentPage,
-    setTotalUserCount,toggleisFetching
+    setTotalUserCount,toggleisFetching,gg
 
 })(UsersContainer)
 

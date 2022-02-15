@@ -41,7 +41,6 @@ let  Users = (props)  =>{
   
   })
 
-
   let fun = props.state.findUsers
     .map(u => {	
       return(
@@ -49,10 +48,11 @@ let  Users = (props)  =>{
           <div className={classes.left}>
         
             <div className={classes.avatar}>
-              <NavLink to={`/profile/id_${u.id}`}>{
+              
+              <NavLink to={`/profile/id_${u.id}`} onClick={() => {props.state.gg(u.id)}}>{
                 u.photos.small 
                 ? <img src={`${u.photos.small}`} alt="1" />
-                : <img src={`https://picsum.photos/50/50?random=${u.id}`} alt="1" />}
+                : <img src={`https://picsum.photos/80/80?random=${u.id}`} alt="1" />}
               </NavLink>
              </div>
         

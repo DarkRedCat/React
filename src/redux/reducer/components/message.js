@@ -1,7 +1,6 @@
 import allUsers from './ALL_USERS'
-import {userId} from './myPersonalData'
 
-let userMessage = allUsers[userId]._getMessage().with_user
+let userMessage = allUsers[0]._getMessage().with_user
 
 let message = {
   ...userMessage

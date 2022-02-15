@@ -1,7 +1,7 @@
 import message from './components/message';
 import contact_data from './components/contact_data'
 
-import myData  from './components/myPersonalData'
+
 
 const ADD_MESSAGE = 'ADD-MESSAGE'
 const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
@@ -10,7 +10,6 @@ const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT'
 let initialState = {
     message: message,
     contact_data : contact_data,
-    myData: myData.user,
     newMessageText: '',
 }
 const blockMessageReducer = (state = initialState, action) => {

@@ -3,16 +3,16 @@ import classes from './BestFriends_item.module.css';
 
 
 const BestFriends_items = (props) => {
-    let bestFriends = props.navBar.myData.user.id_Best_Friends
+
+
+    let bestFriends = ['2','4']
     let people = props.navBar.contact_data
-    
-    // console.log(props)
+    // console.log(props.navBar);
     let bestFriendsItem = bestFriends.map(bf => {
         let person ={}
         people.map(i => {
             if(parseInt(bf) === i.id){person = i;return person}  
         })
-        
         return (
           
             <NavLink key={bf} to={`/messages/id_${[bf]}`}>

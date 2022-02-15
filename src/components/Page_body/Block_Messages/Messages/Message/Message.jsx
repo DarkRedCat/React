@@ -2,7 +2,6 @@ import SendBlock from './SendBlock/SendBlock';
 import classes from './Message.module.css';
 
 const Message = (props) => {
-    let UserState = props.store.block_MessagesPage.myData
     let propsMessage = props.store.block_MessagesPage.message
 
 
@@ -15,7 +14,7 @@ const Message = (props) => {
 
                 <div className={classes.text}>
                     <div className={classes.name}>
-                        {`${UserState.name}`}
+                        cyka
                     </div>
                     {`${m[2]}`}
                 </div>

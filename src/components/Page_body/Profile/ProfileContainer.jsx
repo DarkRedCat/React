@@ -12,13 +12,11 @@ import MyPosts from "./Myposts/MyPosts"
 
 import classes from './Profile.module.css'
 
-let aaa = 2
-
 
 class UserProfileContainer extends React.Component {
 
   componentDidMount(){
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${aaa}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.fullprofilePage.gg}`)
     .then(response => {this.props.setUserProfile(response.data)})
   }
   render(){ 
