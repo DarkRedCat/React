@@ -5,17 +5,24 @@
   background-color: #181a1b;
   z-index: 1;
   grid-area: header;
+
+  display: flex;
+  justify-content:space-between ;
 }
 
 .header__logo{
-  position: absolute;
-  left: 3%;
-  top: 50%;
-  transform: translateY(-47%);
-
   width: 50px;
-  margin: auto;
+  margin: 10px;
+  margin-left: 30px;
 }
 .header__logo img{
   width: 100%;
+}
+.loginBlock{
+  line-height: 70px;
+  margin-right: 30px;
+  color: red;
+}
+.loginBlock a{
+  color:  red;
 }
