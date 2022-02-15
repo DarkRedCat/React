@@ -1,0 +1,38 @@
+
+.navBar{ 
+  position:sticky;
+  top: 80px;
+  grid-area: nav;
+  height: auto;
+  border: 1px solid red;
+}
+.navBar ul{
+  list-style: none;
+  transition: .5s color;
+}
+
+.navBar__item{
+  margin-left: -20px;
+}
+
+.navBar__item:nth-last-child(2){
+  margin: 30px -20px;
+}
+
+.navBar__item a {
+  color:  darkred;
+  font-size: 30px;
+  text-decoration :none;
+
+  transition: .5s color;
+}
+.navBar__item a:hover{
+  color: red;
+}
+
+.navBar__item a.active{
+  color: red;
+}
+ul:hover li a.active{
+  color: rgb(78, 33, 33);
+}

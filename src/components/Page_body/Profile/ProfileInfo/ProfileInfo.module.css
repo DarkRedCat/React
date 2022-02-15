@@ -1,0 +1,44 @@
+/* Main */
+.pageBody{
+  border: 1px solid red;
+  grid-area: main;
+}
+.banner{
+  min-height:200px ;
+}
+.banner img{
+  width: 100%;
+  min-height:180px;
+}
+
+
+.description{
+  display: flex;
+  margin-bottom: 60px;
+}
+.description__avatar{
+  padding: 10px;
+  width: 15%;
+  display: inline;
+}
+.description__avatar img{
+  width: 100%;
+  height: auto;
+}
+.description__text {
+  color: #eee;
+  margin-left: 45px;
+  font-size: 28px;
+}
+.description__title span{
+  font-size: 1.1em;
+  font-weight:600;
+}
+.description__subtitle{
+  font-size: 25px;
+}
+
+.profileLoad div{
+  margin-top: 200px;
+  position: relative;
+}

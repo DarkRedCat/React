@@ -1,0 +1,37 @@
+.send_block{
+  width: 98%;
+  position: absolute;
+  bottom: 5%;
+
+  display: flex;
+}
+
+.textarea{
+  padding: 5px;
+
+  width: 70%; 
+  height: 35px;
+  
+  color: #eee;
+  background: none;
+  outline: none;
+  border: 2px solid darkred;
+
+  resize: none;
+}
+.textarea:focus{
+  border: 2px solid red;
+}
+.send{
+  margin-left: 20px;
+  padding: 5px 25px;
+  background: none;
+  border: 1px solid red;
+  cursor: pointer;
+  transition: .5s ;
+}
+
+.send:hover{
+  background: darkred;
+  border: 1px solid #111;
+}

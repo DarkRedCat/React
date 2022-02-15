@@ -1,0 +1,47 @@
+.message{
+  display: flex;
+  margin-bottom: 40px;
+}
+.message:last-child{
+  margin-bottom: 100px;
+}
+.text{
+  position: relative;
+  color: red;
+  padding:0;
+  margin-left: 30px;
+  padding: 8px 10px;
+  border: 1px solid darkred;
+  border-radius: 30px;
+  background: #222;
+}
+
+.name{
+  color: black;
+  position: absolute;
+  top: -55%;
+  left: 8%;
+}
+.Mymessage{
+  margin-left: 0px;
+  margin-right: 30px;
+  flex-direction: row-reverse;
+}
+
+.avatar{
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid darkred;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+}
+.avatar img {
+  width: 100%;
+  height: auto;
+}
+
+.ssd{
+  max-height: 370px ;
+  overflow-y: scroll;
+}

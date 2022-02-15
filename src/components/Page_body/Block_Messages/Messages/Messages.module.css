@@ -1,0 +1,7 @@
+.block__message{
+  position: relative;
+  margin: 0;
+  padding: 30px;
+  height: 100%;
+  border-left:2px solid darkred ;
+}

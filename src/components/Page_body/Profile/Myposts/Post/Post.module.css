@@ -1,0 +1,21 @@
+
+.message{
+  display: flex;
+  margin-bottom: 30px;
+}
+.message__block{
+  margin:0px 8px 10px 10px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius:50%;
+  background: darkred;
+}
+.message__content{
+  color: #eee;
+}
+
+.message__title{
+  font-size: 1.2rem ;
+  font-weight: 300;
+  
+}
