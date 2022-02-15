@@ -1,0 +1,95 @@
+.user_block{
+  padding: 10px 20px;
+ position: relative;
+}
+.user_block_title{
+  margin: 10px;
+}
+.wrapp{
+  height: 80px;
+  margin: 20px 20px;
+  display: flex;
+}
+
+.left{
+  width: 20%; 
+  border-radius: 5px;
+  border:1px solid red; 
+}
+.tegA{
+  display: inline;
+}
+.avatar {
+  margin: 5px auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border:1px solid red;
+
+}
+.avatar img {
+  border-radius: 50px;
+  width: 100%;
+}
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.button button{
+  border: 1px solid darkred;
+  background: transparent;
+  border-radius: 5px;
+  color:  red;
+  width: 70%;
+  transition: .3s;
+}
+.button button:hover{
+  background: darkred;
+  color:  #111;
+}
+
+h2 ,h3,p {
+  margin: 0;
+}
+
+.right{
+  width: 79%; 
+  margin-left: 5px;
+  padding: 10px;
+  border:1px solid red;
+  border-radius: 5px;
+  color: red;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.head{
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.nothead{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.selectPage{
+  display: inline;
+  margin-right: 5px;
+  color:  white;
+  cursor: pointer;
+  user-select :none;
+}
+.selectPage div {
+  display: inline;
+  margin-left:5px ;
+  cursor:default;
+}
+.selectPage span.active{
+  color: red;
+}

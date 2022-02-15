@@ -1,0 +1,21 @@
+.header{
+  position:sticky;
+  top: 0;
+  border: 1px solid red;
+  background-color: #181a1b;
+  z-index: 1;
+  grid-area: header;
+}
+
+.header__logo{
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-47%);
+
+  width: 50px;
+  margin: auto;
+}
+.header__logo img{
+  width: 100%;
+}

@@ -1,0 +1,6 @@
+.messages__block{
+  display: grid;
+  grid-template-columns:30% 70%;
+  min-height:calc(90vh - 110px);
+  position: relative;
+}

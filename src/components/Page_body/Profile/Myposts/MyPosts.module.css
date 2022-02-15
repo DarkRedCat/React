@@ -1,0 +1,51 @@
+/* Posts */
+.post{
+  position: relative;
+  margin-bottom: 40px;
+ 
+}
+.post__title{
+  color: #eee;
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: normal;
+}
+.post__form{
+  position: relative;
+  margin: 0px 10px 70px 10px;
+  width: 90%;
+}
+.textarea{
+  display: block;
+
+  padding: 10px;
+
+  width: 100%; 
+  height: 70px;
+  
+  color: #eee;
+  background: none;
+  outline: none;
+  border: 2px solid darkred;
+
+  resize: none;
+}
+.textarea:focus{
+  border: 2px solid red;
+}
+.post__form__btn{
+  margin-top: 20px;
+  padding: 8px 20px;
+  background: none;
+  border: 1px solid red;
+  
+
+  float:right;
+  cursor: pointer;
+
+  transition: .5s ;
+}
+.post__form__btn:hover{
+  background: darkred;
+  border: 1px solid #111;
+}
