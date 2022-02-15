@@ -33,4 +33,6 @@ export const addPost = name =>({type : ADD_POST,name})
 export const updatePostText = text =>({type: UPDATE_POST_TEXT,text})
 export const setUserProfile = profile =>({type : SET_USER_PROFILE,profile})
 export const gg = gg =>({type : GG,gg})
+
+
 export default profileReducer
