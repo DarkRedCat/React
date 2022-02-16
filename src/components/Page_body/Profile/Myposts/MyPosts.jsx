@@ -10,11 +10,11 @@ const MyPosts = (props) => {
 
     let buttonClick = () => {
         if(props.profilePage.newPostText !== ''){
-            props.onAddPost(props.profilePage.myData.name)    
+            props.addPost(props.profilePage.myData.name)    
         }
     };
     let onPostChange = (e) => {
-        props.onPostChange(e.target.value)
+        props.updatePostText(e.target.value)
     }
 
 

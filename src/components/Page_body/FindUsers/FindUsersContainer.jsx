@@ -3,53 +3,36 @@ import {connect} from 'react-redux'
 import classes from './FindUsers.module.css';
 import Load from '../../common/Load'
 
-import {follow,unFollow,setUsers,setCurrentPage,setTotalUserCount,toggleisFetching,toggleisFollowingInProgress} 
-    from '../../../redux/reducer/FindUsers_reducer' 
-import {usersAPI} from '../../../api/api'
+import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/FindUsers_reducer' 
 import {gg} from '../../../redux/reducer/Profile_reducer'
 
 
 import FindUsers from './FindUsers'
 class UsersContainer extends React.Component {
-    componentDidMount(){
-        this.props.toggleisFetching(true)
-        usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
-            .then(data => {
-            this.props.toggleisFetching(false)
-            this.props.setUsers(data.items)
-            this.props.setTotalUserCount(data.totalCount)				
-        })
-    }
-    onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.toggleisFetching(true)
+    
+    componentDidMount(){this.props.getUsersThunk(this.props.currentPage,this.props.pageSize)}
+    onPageChanged= pageNumber =>{this.props.getUsersThunk(pageNumber,this.props.pageSize)}
 
-        usersAPI.getUsers(pageNumber,this.props.pageSize)
-        .then(data => {
-            this.props.setUsers(data.items)
-            this.props.toggleisFetching(false)
-        })
-    }
     render() { 
         let state = {
             findUsers : this.props.findUsers,
-            unFollow : this.props.unFollow,
-            follow : this.props.follow,
-
             totalUsersCount: this.props.totalUsersCount,
             pageSize: this.props.pageSize,
             currentPage : this.props.currentPage,
 
             PageChanged : this.onPageChanged,
-            gg : this.props.gg,
+            gg : this.props.gg, // удатите уту херню
+
             followingInProgress : this.props.followingInProgress,
-            toggleisFollowingInProgress : this.props.toggleisFollowingInProgress,
+        
+            unFollow :this.props.unFollow ,
+            follow : this.props.follow
         }
        
     return(
         <div className={classes.user_block}>
-        {this.props.isFetching ? <Load/>:null}
-        <FindUsers state={state} />
+            {this.props.isFetching ? <Load props='div'/>:null}
+            <FindUsers state={state} />
         </div>
      
     )
@@ -67,10 +50,7 @@ let mapStateToProps = (state) => {
      }
 }
 
-const FindUsersContainer = connect(mapStateToProps, {
-    follow,unFollow,setUsers,setCurrentPage,
-    setTotalUserCount,toggleisFetching,gg,toggleisFollowingInProgress
-
+const FindUsersContainer = connect(mapStateToProps, {gg,getUsersThunk,unFollow,follow
 })(UsersContainer)
 
 export default FindUsersContainer;

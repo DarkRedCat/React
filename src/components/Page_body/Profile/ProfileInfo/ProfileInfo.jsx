@@ -5,7 +5,7 @@ import classes from './ProfileInfo.module.css';
 const Post = (props) => {
     if(!props.userState){return (
         <div className={classes.profileLoad}>
-            <Load />
+            <Load props='div' />
         </div>
     )}
 
@@ -25,14 +25,9 @@ const Post = (props) => {
            
 
             <div className={classes.description}>
-                <div className={classes.description__avatar}>
-
-                    {
-                          !props.userState.photos.large
-                          ?  <img src={`https://picsum.photos/80/80?random=${props.userState.userId}`} alt="alt"/> 
-                          : null
-                    }
-                     
+                <div className={classes.description__avatar}>{!props.userState.photos.large
+                    ?  <img src={`https://picsum.photos/80/80?random=${props.userState.userId}`} alt="alt"/> 
+                    :  <img src={props.userState.photos.large} alt="alt"/> }
                 </div>
 
                 <div className={classes.description__text}>

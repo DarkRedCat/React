@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {addPost,updatePostText,setUserProfile} from '../../../redux/reducer/Profile_reducer'
+import {addPost,updatePostText,setUserProfile,getProfileG} from '../../../redux/reducer/Profile_reducer'
 import {usersAPI} from '../../../api/api'
-
 
 
 import ProfileInfo from './ProfileInfo/ProfileInfo'
@@ -10,37 +9,19 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 import classes from './Profile.module.css'
 
-
-
 class UserProfileContainer extends React.Component {
-
-  componentDidMount(){
-    usersAPI.getProfile(this.props.fullprofilePage.gg).then(response => {this.props.setUserProfile(response)})
-  }
-  render(){ 
-    return (
-      <div className={classes.cal}>
-          <ProfileInfo userState={this.props.profilePage}/>
-          {/* <MyPosts posts={this.props.fullprofilePage}/>    */}
-      </div>
-    );
+  componentDidMount(){this.props.getProfileG(this.props.fullprofilePage.gg)}
+  render(){ return (<div className={classes.cal}>
+      <ProfileInfo userState={this.props.profilePage}/>
+      {/* <MyPosts posts={this.props.fullprofilePage}/>    */}
+    </div>);
   }
 };
 
-
 let mapStateToProps = (state) => {
-  return {
-    profilePage : state.profilePage.profile,
-    fullprofilePage : state.profilePage
-  }
+  return {profilePage : state.profilePage.profile,fullprofilePage : state.profilePage}
 }
-let mapDispatchToProps = (dispatch) => {
-  return {
-    onAddPost    : (name) => {dispatch(addPost(name))},
-    onPostChange : (text) => {dispatch(updatePostText(text))},
-    setUserProfile : (profile) => {dispatch(setUserProfile(profile))}
-  }
-}
-const ProfileContainer = connect(mapStateToProps,mapDispatchToProps)(UserProfileContainer)
+const ProfileContainer = connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG})(UserProfileContainer)
+
 
 export default ProfileContainer;

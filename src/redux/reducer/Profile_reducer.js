@@ -1,3 +1,4 @@
+import {usersAPI} from '../../api/api'
 import posts from './components/posts'
 
 const ADD_POST = 'ADD-POST'
@@ -33,6 +34,10 @@ export const addPost = name =>({type : ADD_POST,name})
 export const updatePostText = text =>({type: UPDATE_POST_TEXT,text})
 export const setUserProfile = profile =>({type : SET_USER_PROFILE,profile})
 export const gg = gg =>({type : GG,gg})
+
+export const getProfileG = (UserId) => {
+    return(dispatch)=>{usersAPI.getProfile(UserId).then(response => {dispatch(setUserProfile(response))})}
+}
 
 
 export default profileReducer
