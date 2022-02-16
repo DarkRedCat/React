@@ -93,3 +93,11 @@ h2 ,h3,p {
 .selectPage span.active{
   color: red;
 }
+
+.load{
+  width: 10px;
+  margin: 0 auto;
+}
+.load img{
+  width: 100%;
+}

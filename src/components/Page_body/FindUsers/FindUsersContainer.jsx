@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import classes from './FindUsers.module.css';
 import Load from '../../common/Load'
 
-import {follow,unFollow,setUsers,setCurrentPage,setTotalUserCount,toggleisFetching} 
+import {follow,unFollow,setUsers,setCurrentPage,setTotalUserCount,toggleisFetching,toggleisFollowingInProgress} 
     from '../../../redux/reducer/FindUsers_reducer' 
 import {usersAPI} from '../../../api/api'
 import {gg} from '../../../redux/reducer/Profile_reducer'
@@ -13,7 +13,6 @@ import FindUsers from './FindUsers'
 class UsersContainer extends React.Component {
     componentDidMount(){
         this.props.toggleisFetching(true)
-
         usersAPI.getUsers(this.props.currentPage,this.props.pageSize)
             .then(data => {
             this.props.toggleisFetching(false)
@@ -43,6 +42,8 @@ class UsersContainer extends React.Component {
 
             PageChanged : this.onPageChanged,
             gg : this.props.gg,
+            followingInProgress : this.props.followingInProgress,
+            toggleisFollowingInProgress : this.props.toggleisFollowingInProgress,
         }
        
     return(
@@ -61,13 +62,14 @@ let mapStateToProps = (state) => {
         pageSize: state.findUsers.pageSize,
         totalUsersCount: state.findUsers.totalUsersCount,
         currentPage : state.findUsers.currentPage,
-        isFetching : state.findUsers.isFetching
+        isFetching : state.findUsers.isFetching,
+        followingInProgress : state.findUsers.followingInProgress,
      }
 }
 
 const FindUsersContainer = connect(mapStateToProps, {
     follow,unFollow,setUsers,setCurrentPage,
-    setTotalUserCount,toggleisFetching,gg
+    setTotalUserCount,toggleisFetching,gg,toggleisFollowingInProgress
 
 })(UsersContainer)
 

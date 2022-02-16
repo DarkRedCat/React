@@ -2,13 +2,11 @@ import classes from './FindUsers.module.css';
 import {NavLink} from 'react-router-dom';
 // import { usersAPI } from "../../../api/api";
 let  Users = (props)  =>{
-
-
   let  pagesCount =  Math.ceil(props.state.totalUsersCount / props.state.pageSize)
   let pages = []
   for (let i = 1; i <= pagesCount; i++) {pages.push(i)}
 
- 
+
   let pageFun = pages.map(p => {
     let CP = props.state.currentPage;
 
@@ -40,11 +38,25 @@ let  Users = (props)  =>{
       )
     }
   
-  })
+  }) 
+  let follow =(id) => {
+    props.state.toggleisFollowingInProgress(true, id)
+    // usersAPI.ulFollow(id).then(response =>{
+      // if(response.data.resultCode===0){props.state.unFollow(id)}props.state.toggleisFollowingInProgress(false,id) 
+    // })
 
-  // let follow =(id) => {usersAPI.ulFollow(id).then(response =>{if(response.data.resultCode===0){props.state.unFollow(id)}})}
-  // let unfollow = (id) => {usersAPI.follow(id).then(response => {if(response.data.resultCode === 0){props.state.follow(id)}})}
+    props.state.unFollow(id)
+    setTimeout(() => {props.state.toggleisFollowingInProgress(false,id)}, 100);
+    }
+  let unfollow = (id) => {
+    props.state.toggleisFollowingInProgress(true, id)
+    // usersAPI.follow(id).then(response => {
+    //   if(response.data.resultCode === 0){props.state.follow(id)}props.state.toggleisFollowingInProgress(false,id)
+    // })
 
+    props.state.follow(id)
+    setTimeout(() => {props.state.toggleisFollowingInProgress(false,id)}, 100);
+    }
   let fun = props.state.findUsers
     .map(u => {	
       return(
@@ -60,12 +72,27 @@ let  Users = (props)  =>{
               </NavLink>
              </div>
         
-              <div className={classes.button}>{(u.followed)
-                  // ? <button onClick={() => {follow(u.id)}}>unfolowed</button>
-                  // : <button onClick={() => {unfollow(u.id)}}>followed</button>
-
-                  ? <button onClick={() => {props.state.unFollow(u.id)}}>unfolowed</button> 
-                  : <button onClick={() => {props.state.follow(u.id)}}>followed</button>
+              <div className={classes.button}>
+                {
+                (u.followed)
+                  ? <button disabled={props.state.followingInProgress.some(id => id === u.id)} 
+                      onClick={() => {follow(u.id)}}>
+                        {props.state.followingInProgress.some(id => id === u.id)
+                          ? <div className={classes.load}>
+                              <img className={classes.gif}src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif"alt='img'/>
+                            </div>
+                          : 'unfolowed'
+                        }
+                        </button>
+                  : <button disabled={props.state.followingInProgress.some(id => id === u.id)} 
+                      onClick={() => {unfollow(u.id)}}>
+                        {props.state.followingInProgress.some(id => id === u.id) 
+                          ?  <div className={classes.load}>
+                                <img className={classes.gif}src="https://c.tenor.com/5o2p0tH5LFQAAAAi/hug.gif"alt='img'/>
+                             </div>
+                          : 'followed'
+                        }
+                        </button>
               }
               </div>
 

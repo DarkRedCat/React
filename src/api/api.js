@@ -14,8 +14,6 @@ export const usersAPI = {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)},
   authMe () {return instance.get(`auth/me`).then(response => response.data)},
   getProfile (profileUserId) {return instance.get(`profile/${profileUserId}`).then(response => response.data)},
-
-
   ulFollow (UserId) {return instance.delete(`follow/${UserId}`).then(response => response)},
   follow (UserId) {return instance.post(`follow/${UserId}`).then(response => response)}
 }
