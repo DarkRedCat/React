@@ -1,5 +1,6 @@
 import classes from './FindUsers.module.css';
 import {NavLink} from 'react-router-dom';
+import * as axios from 'axios';
 let  Users = (props)  =>{
 
 
@@ -56,8 +57,21 @@ let  Users = (props)  =>{
               </NavLink>
              </div>
         
-              <div className={classes.button}>{(u.followed)
-                ? <button onClick={() => {props.state.unFollow(u.id)}}>unfolowed</button> 
+              {/* <div className={classes.button}>{(u.followed)
+
+                ? <button onClick={() => {
+                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,	{
+                      withCredentials: true, headers: {"API-KEY" : "944c2657-7cf6-4462-8526-3b6d01917dd5"}})
+                      .then(response => {if(response.data.resultCode === 0){props.state.unFollow(u.id)}})}}>unfolowed</button> 
+                : <button onClick={() => {
+                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{
+                      withCredentials: true, headers: {"API-KEY" : "944c2657-7cf6-4462-8526-3b6d01917dd5"}})
+                      .then(response => {if(response.data.resultCode === 0){props.state.follow(u.id)}}>followed</button>}
+
+              </div> */}
+
+               <div className={classes.button}>{(u.followed)
+                ? <button  onClick={() => {props.state.unFollow(u.id)}}>unfolowed</button> 
                 : <button onClick={() => {props.state.follow(u.id)}}>followed</button>}
               </div>
 
@@ -70,7 +84,7 @@ let  Users = (props)  =>{
           
         </div>
 
-       
+     
       )
   })
 
