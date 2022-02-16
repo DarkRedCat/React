@@ -1,23 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import * as axios from 'axios';
 import {addPost,updatePostText,setUserProfile} from '../../../redux/reducer/Profile_reducer'
-
-
+import {usersAPI} from '../../../api/api'
 
 
 
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import MyPosts from "./Myposts/MyPosts"
+// import MyPosts from "./Myposts/MyPosts"
 
 import classes from './Profile.module.css'
+
 
 
 class UserProfileContainer extends React.Component {
 
   componentDidMount(){
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.fullprofilePage.gg}`)
-    .then(response => {this.props.setUserProfile(response.data)})
+    usersAPI.getProfile(this.props.fullprofilePage.gg).then(response => {this.props.setUserProfile(response)})
   }
   render(){ 
     return (

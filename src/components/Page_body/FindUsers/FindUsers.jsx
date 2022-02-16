@@ -1,6 +1,6 @@
 import classes from './FindUsers.module.css';
 import {NavLink} from 'react-router-dom';
-import * as axios from 'axios';
+// import { usersAPI } from "../../../api/api";
 let  Users = (props)  =>{
 
 
@@ -42,6 +42,9 @@ let  Users = (props)  =>{
   
   })
 
+  // let follow =(id) => {usersAPI.ulFollow(id).then(response =>{if(response.data.resultCode===0){props.state.unFollow(id)}})}
+  // let unfollow = (id) => {usersAPI.follow(id).then(response => {if(response.data.resultCode === 0){props.state.follow(id)}})}
+
   let fun = props.state.findUsers
     .map(u => {	
       return(
@@ -57,23 +60,15 @@ let  Users = (props)  =>{
               </NavLink>
              </div>
         
-              {/* <div className={classes.button}>{(u.followed)
+              <div className={classes.button}>{(u.followed)
+                  // ? <button onClick={() => {follow(u.id)}}>unfolowed</button>
+                  // : <button onClick={() => {unfollow(u.id)}}>followed</button>
 
-                ? <button onClick={() => {
-                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,	{
-                      withCredentials: true, headers: {"API-KEY" : "944c2657-7cf6-4462-8526-3b6d01917dd5"}})
-                      .then(response => {if(response.data.resultCode === 0){props.state.unFollow(u.id)}})}}>unfolowed</button> 
-                : <button onClick={() => {
-                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{
-                      withCredentials: true, headers: {"API-KEY" : "944c2657-7cf6-4462-8526-3b6d01917dd5"}})
-                      .then(response => {if(response.data.resultCode === 0){props.state.follow(u.id)}}>followed</button>}
-
-              </div> */}
-
-               <div className={classes.button}>{(u.followed)
-                ? <button  onClick={() => {props.state.unFollow(u.id)}}>unfolowed</button> 
-                : <button onClick={() => {props.state.follow(u.id)}}>followed</button>}
+                  ? <button onClick={() => {props.state.unFollow(u.id)}}>unfolowed</button> 
+                  : <button onClick={() => {props.state.follow(u.id)}}>followed</button>
+              }
               </div>
+
 
           </div>
           
