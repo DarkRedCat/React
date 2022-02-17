@@ -7,11 +7,10 @@ import classes from './Messages.module.css';
 
 
 const Messages = (props) => {
-    
-    let messageElements = props.block_MessagesPage.contact_data
+    let messageElements = props.state.block_MessagesPage.contact_data
         .map(m => <Route
             key={m.id} path={`id_${m.id}/*`}
-            element={< Message state = {m} store={props} />}/>)
+            element={< Message state = {m} store={props.state} />}/>)
 
     return (
         <div className={classes.block__message}>

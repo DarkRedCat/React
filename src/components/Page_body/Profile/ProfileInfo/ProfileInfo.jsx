@@ -1,13 +1,10 @@
+
 import Load from '../../../common/Load'
 import classes from './ProfileInfo.module.css';
 
 
 const Post = (props) => {
-    if(!props.userState){return (
-        <div className={classes.profileLoad}>
-            <Load props='div' />
-        </div>
-    )}
+    if(!props.userState){return (<div className={classes.profileLoad}><Load props='div' /></div>)}
 
 
     let fullName = props.userState.fullName; 

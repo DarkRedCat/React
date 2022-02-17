@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Navigate} from 'react-router-dom'
 import {addPost,updatePostText,setUserProfile,getProfileG} from '../../../redux/reducer/Profile_reducer'
-import {usersAPI} from '../../../api/api'
 
 
 import ProfileInfo from './ProfileInfo/ProfileInfo'
@@ -11,7 +11,10 @@ import classes from './Profile.module.css'
 
 class UserProfileContainer extends React.Component {
   componentDidMount(){this.props.getProfileG(this.props.fullprofilePage.gg)}
-  render(){ return (<div className={classes.cal}>
+  render(){ 
+    if(this.props.isAuth) return <Navigate to='/login'/>
+
+    return (<div className={classes.cal}>
       <ProfileInfo userState={this.props.profilePage}/>
       {/* <MyPosts posts={this.props.fullprofilePage}/>    */}
     </div>);
@@ -19,7 +22,12 @@ class UserProfileContainer extends React.Component {
 };
 
 let mapStateToProps = (state) => {
-  return {profilePage : state.profilePage.profile,fullprofilePage : state.profilePage}
+  return {
+    profilePage : state.profilePage.profile,
+    fullprofilePage : state.profilePage,
+    isAuth : state.auth.isAuth
+  
+  }
 }
 const ProfileContainer = connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG})(UserProfileContainer)
 

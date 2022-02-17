@@ -3,9 +3,8 @@ import classes from './Contacts.module.css';
 
 
 const Contacts = (props) => {
-
     let contactElements = [2,3,4]
-    .map( p => <Contact key={p} id={p} contactInfo={props.block_MessagesPage.contact_data} url={`id_${p}`}/>  )
+    .map( p => <Contact key={p} id={p} contactInfo={props.state.block_MessagesPage.contact_data} url={`id_${p}`}/>  )
 
     return (
         <div className={classes.contacts}>

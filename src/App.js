@@ -3,9 +3,9 @@ import Nav from "./components/Nav/Nav"
 
 /*pages*/
 import ProfileContainer from "./components/Page_body/Profile/ProfileContainer"
-import Messages from "./components/Page_body/Block_Messages/Block_Messages"
-
+import Block_MessagesContainer from "./components/Page_body/Block_Messages/Block_MessagesContainer"
 import FindUsersContainer from "./components/Page_body/FindUsers/FindUsersContainer"
+import Login from './components/Page_body/Login/Login'
 
 
 
@@ -22,9 +22,9 @@ const App = () => {
       <main className="pageBody__content">
         <Routes>
           <Route path={"/profile/*",'/*'} element={<ProfileContainer />}/>
-          <Route path="/messages/*" element={ <Messages/>}/>
-         
+          <Route path="/messages/*" element={ <Block_MessagesContainer/>}/>
           <Route path="/find_users/*" element={ <FindUsersContainer/>}/>
+          <Route path="/login/*" element={ <Login/>}/>
         </Routes>
       </main>
     </div>
