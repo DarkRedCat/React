@@ -7,6 +7,8 @@ import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/FindUsers_re
 import {gg} from '../../../redux/reducer/Profile_reducer'
 
 
+// import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
+
 import FindUsers from './FindUsers'
 class UsersContainer extends React.Component {
     
@@ -50,7 +52,9 @@ let mapStateToProps = (state) => {
      }
 }
 
-const FindUsersContainer = connect(mapStateToProps, {gg,getUsersThunk,unFollow,follow
-})(UsersContainer)
-
-export default FindUsersContainer;
+//--
+//блокировка страницы для незарегистрированных пользователей
+//let WithUrlDataContainer = withAuthRedirect(withAuthRedirect(UsersContainer))
+  let WithUrlDataContainer = UsersContainer
+//--
+export default connect(mapStateToProps,{gg,getUsersThunk,unFollow,follow})(WithUrlDataContainer);
