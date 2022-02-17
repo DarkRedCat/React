@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import { compose } from 'redux';
 import {addMessage,updateMessageText} from '../../../redux/reducer/Block_Messages_reducer' 
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 
@@ -14,5 +15,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let WithUrlDataContainer = withAuthRedirect(withAuthRedirect(Block_Messages))
-export default connect(mapStateToProps, mapDispatchToProps)(WithUrlDataContainer);
+let Block_MessagesContainer = compose(connect(mapStateToProps, mapDispatchToProps),withAuthRedirect)(Block_Messages)
+
+export default  Block_MessagesContainer
+

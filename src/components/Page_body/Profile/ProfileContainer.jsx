@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import { compose } from 'redux';
 import {addPost,updatePostText,setUserProfile,getProfileG} from '../../../redux/reducer/Profile_reducer'
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 
@@ -19,9 +20,8 @@ class UserProfileContainer extends React.Component {
   }
 };
 
+let mapStateToProps = (state) => {return {profilePage:state.profilePage.profile, fullprofilePage:state.profilePage}}
 
+let ProfileContainer = compose(connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG}),withAuthRedirect)(UserProfileContainer)
 
-let mapStateToProps = (state) => {return {profilePage : state.profilePage.profile,fullprofilePage : state.profilePage}}
-let WithUrlDataContainer = withAuthRedirect(withAuthRedirect(UserProfileContainer))
-
-export default connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG})(WithUrlDataContainer);
+export default ProfileContainer
