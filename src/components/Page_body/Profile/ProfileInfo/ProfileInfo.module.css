@@ -42,3 +42,6 @@
   margin-top: 200px;
   position: relative;
 }
+.profileStatus{
+  border-top:2px solid darkred ;
+}

@@ -22,6 +22,6 @@ class UserProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {return {profilePage:state.profilePage.profile, fullprofilePage:state.profilePage}}
 
-let ProfileContainer = compose(connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG}),withAuthRedirect)(UserProfileContainer)
+let ProfileContainer = compose(connect(mapStateToProps,{addPost,updatePostText,setUserProfile,getProfileG}))(UserProfileContainer)
 
 export default ProfileContainer

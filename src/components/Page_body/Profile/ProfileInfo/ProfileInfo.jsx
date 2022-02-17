@@ -1,9 +1,10 @@
 
 import Load from '../../../common/Load'
 import classes from './ProfileInfo.module.css';
-
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const Post = (props) => {
+
     if(!props.userState){return (<div className={classes.profileLoad}><Load props='div' /></div>)}
 
 
@@ -38,6 +39,9 @@ const Post = (props) => {
                         </div>
                         <div>{props.userState.aboutMe 
                                 ? `about me: ${props.userState.aboutMe}`: `about me: Lorem ipsum dolor sit amet.  `}
+                        </div>
+                        <div className={classes.profileStatus}>
+                            <ProfileStatus status='red'/>
                         </div>
                     </div>
                 </div>
