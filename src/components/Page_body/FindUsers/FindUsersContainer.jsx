@@ -7,7 +7,7 @@ import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/FindUsers_re
 import {gg} from '../../../redux/reducer/Profile_reducer'
 
 
-import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
+// import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 import {compose} from 'redux'
 import FindUsers from './FindUsers'
 class UsersContainer extends React.Component {

@@ -4,13 +4,10 @@ import classes from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const Post = (props) => {
-
     if(!props.userState){return (<div className={classes.profileLoad}><Load props='div' /></div>)}
-
 
     let fullName = props.userState.fullName; 
     fullName = fullName.replace(/( |^)[а-яёa-z]/g, function(x){ return x.toUpperCase(); })
-
     return (
         <div>
             <div className={classes.banner}>
@@ -41,7 +38,7 @@ const Post = (props) => {
                                 ? `about me: ${props.userState.aboutMe}`: `about me: Lorem ipsum dolor sit amet.  `}
                         </div>
                         <div className={classes.profileStatus}>
-                            <ProfileStatus status='red'/>
+                            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                         </div>
                     </div>
                 </div>
