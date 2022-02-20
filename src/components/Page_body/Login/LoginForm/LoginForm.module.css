@@ -66,3 +66,9 @@ input:focus{
   color: rgb(80, 79, 79);
   border: 1px solid darkred;
 }
+
+.mainError{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+}

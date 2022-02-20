@@ -6,8 +6,15 @@ import classes from './LoginForm.module.css';
 
 
 const LoginForm = (props) => {
-  
-  let login = (values) => {props.fun.login(values.email,values.password,values.rememberMe)}
+  let login = (values,submitProps) => {
+    let formData = {
+      email : values.email,
+      password: values.password,
+      rememberMe: values.rememberMe
+    }
+    props.fun.login(formData,submitProps.setStatus);
+    setTimeout(() => {submitProps.resetForm()}, 100);
+  }
 
   const validationsSchema = yup.object().shape({
     email : yup.string().email('Введите верный email').required('обязательно'),
@@ -15,7 +22,7 @@ const LoginForm = (props) => {
   })
   return (
     <div className={classes.Login__wrapper}>
-      <Formik initialValues={{ password : '', email : '',rememberMe : false}} validateOnBlur onSubmit={(values) => {login(values)}}
+      <Formik initialValues={{ password : '', email : '',rememberMe : false}} validateOnBlur onSubmit={(values,submitProps) => {login(values,submitProps)}}
         validationSchema={validationsSchema}>
         {({values,errors,touched, handleChange,handleBlur,isValid,handleSubmit,dirty}) =>{
         let disabled =() =>{if(dirty){if(isValid){return false}else{return true}}else{return true}}
@@ -44,7 +51,9 @@ const LoginForm = (props) => {
             </div>
             <button className={classes.Loginbutton} disabled={disabled()} onClick={handleSubmit} type={`submit`}>Send</button>
 
+            {(props.props !== null) && !dirty &&<p className={classes.mainError}>{props.props}</p> }
           </div> 
+         
         )}}
       </Formik>
     </div>
