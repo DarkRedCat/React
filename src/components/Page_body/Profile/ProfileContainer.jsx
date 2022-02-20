@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import { compose } from 'redux';
 import {addPost,setUserProfile,getProfileG,setUserStatusG,updateStatus} from '../../../redux/reducer/Profile_reducer'
-// import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
+import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import MyPosts from "./Myposts/MyPosts"
@@ -30,6 +30,6 @@ let mapStateToProps = (state) => {return {
   fullprofilePage:state.profilePage
 }}
 
-let ProfileContainer = compose(connect(mapStateToProps,{addPost,setUserProfile,getProfileG,setUserStatusG,updateStatus}))(UserProfileContainer)
+let ProfileContainer = compose(connect(mapStateToProps,{addPost,setUserProfile,getProfileG,setUserStatusG,updateStatus}),withAuthRedirect)(UserProfileContainer)
 
 export default ProfileContainer

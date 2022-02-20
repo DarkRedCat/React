@@ -7,15 +7,11 @@ const Header = (props) => {
 					<img src="https://via.placeholder.com/150/000000/FF0000?text=WTF" alt="Logo"/>
 				</div>
 				<div className={classes.loginBlock}>
-					{
-						props.isAuth
-						?  props.login
+					{props.isAuth
+						?  <div>{props.login} - <button onClick={() => {props.logout()}}>Log out</button></div>
 						: <NavLink to='./login'>Login</NavLink>
 
 					}
-					
-					
-					
 				</div>
 			</header>
   );

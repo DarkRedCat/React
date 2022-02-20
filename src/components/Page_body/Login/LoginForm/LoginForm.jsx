@@ -6,6 +6,8 @@ import classes from './LoginForm.module.css';
 
 
 const LoginForm = (props) => {
+  
+  let login = (values) => {props.fun.login(values.email,values.password,values.rememberMe)}
 
   const validationsSchema = yup.object().shape({
     email : yup.string().email('Введите верный email').required('обязательно'),
@@ -13,7 +15,7 @@ const LoginForm = (props) => {
   })
   return (
     <div className={classes.Login__wrapper}>
-      <Formik initialValues={{ password : '', email : ''}} validateOnBlur onSubmit={(values) => {console.log(values)}}
+      <Formik initialValues={{ password : '', email : '',rememberMe : false}} validateOnBlur onSubmit={(values) => {login(values)}}
         validationSchema={validationsSchema}>
         {({values,errors,touched, handleChange,handleBlur,isValid,handleSubmit,dirty}) =>{
         let disabled =() =>{if(dirty){if(isValid){return false}else{return true}}else{return true}}
@@ -33,7 +35,13 @@ const LoginForm = (props) => {
                 onBlur= {handleBlur} value={values.password}/>
              {touched.password && errors.password && <p className={classes.error}>{errors.password}</p>} 
             </div>
-            
+
+            <div className={classes.check} >
+              <label    htmlFor={`rememberMe`}>rememberMe:</label> <br/>
+              <input className={classes.input}  type={`checkbox`} name={`rememberMe`} onChange={handleChange} 
+                onBlur= {handleBlur} value={values.rememberMe}/>
+             {touched.rememberMe && errors.rememberMe && <p className={classes.error}>{errors.rememberMe}</p>} 
+            </div>
             <button className={classes.Loginbutton} disabled={disabled()} onClick={handleSubmit} type={`submit`}>Send</button>
 
           </div> 
