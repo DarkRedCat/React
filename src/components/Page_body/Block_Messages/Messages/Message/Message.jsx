@@ -2,6 +2,7 @@ import SendBlock from './SendBlock/SendBlock';
 import classes from './Message.module.css';
 
 const Message = (props) => {
+  
     let propsMessage = props.store.block_MessagesPage.message
 
 

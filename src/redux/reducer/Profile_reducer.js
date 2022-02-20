@@ -2,7 +2,6 @@ import {ProfileAPI} from '../../api/api'
 import posts from './components/posts'
 
 const ADD_POST = 'ADD-POST'
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_USER_STATUS = 'SET-USER-STATUS'
 const GG = 'GG'
@@ -19,13 +18,9 @@ const profileReducer = (state = initialState , action) => {
     switch(action.type){
 
         case ADD_POST: {
-            let newPost = {name: action.name,id: (state.posts.length +1),
-            message: state.newPostText}
-            return {...state,posts : [...state.posts,newPost] , newPostText : ''}
+            let newPost = {id: (state.posts.length +1),message: action.text}
+            return {...state,posts : [...state.posts,newPost]}
         }
-        case UPDATE_POST_TEXT : {
-            return {...state,newPostText : action.text}         
-        } 
         case SET_USER_PROFILE : {return{...state,profile: action.profile}}
         case SET_USER_STATUS : {return{...state,status: action.status}}
         case GG : {return{...state,gg: action.gg}}
@@ -33,8 +28,7 @@ const profileReducer = (state = initialState , action) => {
     }
 }
 
-export const addPost = name =>({type : ADD_POST,name})
-export const updatePostText = text =>({type: UPDATE_POST_TEXT,text})
+export const addPost = text =>({type : ADD_POST,text})
 export const setUserProfile = profile =>({type : SET_USER_PROFILE,profile})
 export const setUserStatus = status =>({type : SET_USER_STATUS,status})
 export const gg = gg =>({type : GG,gg})

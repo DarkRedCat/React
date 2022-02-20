@@ -7,6 +7,7 @@ import classes from './Messages.module.css';
 
 
 const Messages = (props) => {
+   
     let messageElements = props.state.block_MessagesPage.contact_data
         .map(m => <Route
             key={m.id} path={`id_${m.id}/*`}
