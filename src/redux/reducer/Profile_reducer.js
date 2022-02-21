@@ -9,7 +9,7 @@ let initialState = {
     posts: posts,
     newPostText: '',
     profile : null,
-    gg : 22474,
+    gg : null,
     status : '',
 }
 

@@ -10,18 +10,21 @@ import MyPosts from "./Myposts/MyPosts"
 import classes from './Profile.module.css'
 
 class UserProfileContainer extends React.Component {
-  componentDidMount(){
-    this.props.getProfileG(this.props.fullprofilePage.gg)
-  //  setTimeout(() => {
-     this.props.setUserStatusG(this.props.fullprofilePage.gg)
-    // }, 1000);
+  componentDidMount(){ 
+    let userId =  this.props.fullprofilePage.gg
+    if(!userId ){userId = 228}
+
+      this.props.getProfileG(userId)
+      this.props.setUserStatusG(userId)
+  
+    
   }
   render(){ 
     return (<div className={classes.cal}>
       <ProfileInfo userState={this.props.profilePage} status={this.props.fullprofilePage.status} 
         updateStatus={this.props.updateStatus}/>
       <MyPosts profilePage={this.props.fullprofilePage} fun={{addPost : this.props.addPost}}/>   
-    </div>);
+    </div>);  
   }
 };
 

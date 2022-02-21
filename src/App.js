@@ -7,29 +7,52 @@ import Block_MessagesContainer from "./components/Page_body/Block_Messages/Block
 import FindUsersContainer from "./components/Page_body/FindUsers/FindUsersContainer"
 import LoginContainer from './components/Page_body/Login/LoginContainer'
 import No from './components/Page_body/No/No'
-
-
+import Load from './components/common/Load'
+import React  from 'react'
 import './App.css';
 import {Routes, Route} from "react-router-dom";
+import { connect } from 'react-redux';
+import {initializeApp} from './redux/reducer/App_reducer'
 
 
 
-const App = () => {
-  return (
-    <div className="app-wrapper">
-      <HeaderContainer/>
-      <Nav />
-      <main className="pageBody__content">
-        <Routes>
-          <Route path={"/profile/*"} element={<ProfileContainer />}/>
-          <Route path="/messages/*" element={ <Block_MessagesContainer/>}/>
-          <Route path="/find_users/*" element={ <FindUsersContainer/>}/>
-          <Route path="/login" element={ <LoginContainer/>}/>
-          <Route path={"/no/"} element={<No/>}/><Route path={"/"} element={<No/>}/>
-        </Routes>
-      </main>
-    </div>
- );
+class  App extends React.Component{
+  componentDidMount(){this.props.initializeApp()}
+  render () {
+    if(this.props.initialState === false){return <Load props={'div'}/>}
+
+    return (
+      <div className="app-wrapper">
+        <HeaderContainer/>
+        <Nav />
+        <main className="pageBody__content">
+          <Routes>
+            <Route path={"/profile/*"} element={<ProfileContainer />}/>
+            <Route path="/messages/*" element={ <Block_MessagesContainer/>}/>
+            <Route path="/find_users/*" element={ <FindUsersContainer/>}/>
+            <Route path="/login" element={ <LoginContainer/>}/>
+            <Route path={"/no/"} element={<No/>}/><Route path={"/"} element={<No/>}/>
+          </Routes>
+        </main>
+      </div>
+   );
+  }
 }; 
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+  initialState : state.app.initialized
+}}
+
+
+
+
+
+
+
+
+
+export default  connect(mapStateToProps,{initializeApp})(App);  
+
+
+

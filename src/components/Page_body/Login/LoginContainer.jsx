@@ -3,7 +3,6 @@ import {login,logout} from '../../../redux/reducer/Auth_reducer'
 import Login from "./Login";
 
 let mapStateToProps = (state) => {
-    console.log(state.auth);
   return {
   isAuth: state.auth.isAuth,
   isError : state.auth.error

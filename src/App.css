@@ -27,3 +27,9 @@ body{
   grid-area: main;
 }
 
+.app-wrapper{
+    color:  red;
+}
+.blue{
+  color: blue;
+}
