@@ -4,6 +4,7 @@ import classes from './FindUsers.module.css';
 import Load from '../../common/Load'
 
 import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/FindUsers_reducer' 
+import { getFindUsers,getPageSize,getTotalUsersCount,getCurrentPage ,getIsFetching ,getFollowingInProgress,} from '../../../redux/reducer/selectors/FindUsers-selectors'
 import {gg} from '../../../redux/reducer/Profile_reducer'
 
 
@@ -41,26 +42,31 @@ class UsersContainer extends React.Component {
     }
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         findUsers: state.findUsers.Users,
+//         pageSize: state.findUsers.pageSize,
+//         totalUsersCount: state.findUsers.totalUsersCount,
+//         currentPage : state.findUsers.currentPage,
+//         isFetching : state.findUsers.isFetching,
+//         followingInProgress : state.findUsers.followingInProgress,
+//      }
+// }
+
 let mapStateToProps = (state) => {
     return {
-        findUsers: state.findUsers.Users,
-        pageSize: state.findUsers.pageSize,
-        totalUsersCount: state.findUsers.totalUsersCount,
-        currentPage : state.findUsers.currentPage,
-        isFetching : state.findUsers.isFetching,
-        followingInProgress : state.findUsers.followingInProgress,
+        findUsers: getFindUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount:getTotalUsersCount(state),
+        currentPage :  getCurrentPage(state),
+        isFetching :getIsFetching(state),
+        followingInProgress :getFollowingInProgress(state),      
      }
 }
 
 
-//--
-//блокировка страницы для незарегистрированных пользователей
-//вкл
-// let FindUsersContainer= 
-    // compose(connect(mapStateToProps,{gg,getUsersThunk,unFollow,follow}),withAuthRedirect)(UsersContainer)
-//откл
-    let FindUsersContainer= compose(connect(mapStateToProps,{gg,getUsersThunk,unFollow,follow}))(UsersContainer)
-//--
+let FindUsersContainer= compose(connect(mapStateToProps,{gg,getUsersThunk,unFollow,follow}))(UsersContainer)
+
 
 
 export default FindUsersContainer

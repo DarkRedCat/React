@@ -1,12 +1,14 @@
 import {ProfileAPI} from '../../api/api'
-import posts from './components/posts'
 
 const ADD_POST = 'ADD-POST'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_USER_STATUS = 'SET-USER-STATUS'
 const GG = 'GG'
 let initialState = {
-    posts: posts,
+    posts: [
+        {id: "01", message: "Hi, how are you?"},
+        {id: "02", message: "I'm hacker"},        
+    ],
     newPostText: '',
     profile : null,
     gg : null,
