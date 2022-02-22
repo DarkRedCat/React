@@ -7,7 +7,6 @@ const BestFriends_items = (props) => {
 
     let bestFriends = ['2','4']
     let people = props.navBar.contact_data
-    // console.log(props.navBar);
     let bestFriendsItem = bestFriends.map(bf => {
         let person ={}
         people.map(i => {

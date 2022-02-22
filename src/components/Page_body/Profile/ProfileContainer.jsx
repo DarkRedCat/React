@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import { compose } from 'redux';
-import {addPost,setUserProfile,getProfileG,setUserStatusG,updateStatus} from '../../../redux/reducer/Profile_reducer'
+import {addPost,setUserProfile,getProfileG,setUserStatusG,updateStatus} from '../../../redux/reducer/profile-reducer'
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 
 import ProfileInfo from './ProfileInfo/ProfileInfo'

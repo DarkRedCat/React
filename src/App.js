@@ -3,7 +3,7 @@ import Nav from "./components/Nav/Nav"
 
 /*pages*/
 import ProfileContainer from "./components/Page_body/Profile/ProfileContainer"
-import Block_MessagesContainer from "./components/Page_body/Block_Messages/Block_MessagesContainer"
+import BlockMessagesContainer from "./components/Page_body/Block_Messages/Block_MessagesContainer"
 import FindUsersContainer from "./components/Page_body/FindUsers/FindUsersContainer"
 import LoginContainer from './components/Page_body/Login/LoginContainer'
 import No from './components/Page_body/No/No'
@@ -12,7 +12,7 @@ import React  from 'react'
 import './App.css';
 import {Routes, Route} from "react-router-dom";
 import { connect } from 'react-redux';
-import {initializeApp} from './redux/reducer/App_reducer'
+import {initializeApp} from './redux/reducer/app-reducer'
 
 
 
@@ -28,7 +28,7 @@ class  App extends React.Component{
         <main className="pageBody__content">
           <Routes>
             <Route path={"/profile/*"} element={<ProfileContainer />}/>
-            <Route path="/messages/*" element={ <Block_MessagesContainer/>}/>
+            <Route path="/messages/*" element={ <BlockMessagesContainer/>}/>
             <Route path="/find_users/*" element={ <FindUsersContainer/>}/>
             <Route path="/login" element={ <LoginContainer/>}/>
             <Route path={"/no/"} element={<No/>}/><Route path={"/"} element={<No/>}/>

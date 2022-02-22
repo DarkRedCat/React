@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {addPost,updatePostText} from '../../../../redux/reducer/Profile_reducer' 
+import {addPost,updatePostText} from '../../../../redux/reducer/profile-reducer' 
 
 import MyPosts from './MyPosts'
 

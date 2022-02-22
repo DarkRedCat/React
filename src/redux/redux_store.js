@@ -1,11 +1,11 @@
 import {applyMiddleware,combineReducers, createStore} from 'redux'
 
-import profileReducer from './reducer/Profile_reducer'
-import blockMessageReducer from './reducer/Block_Messages_reducer'
-import navBarReducer from './reducer/Navbar_reducer'
-import findUsersReducer from './reducer/FindUsers_reducer'
-import authReducer from './reducer/Auth_reducer'
-import appReducer from './reducer/App_reducer'
+import profileReducer from './reducer/profile-reducer'
+import blockMessageReducer from './reducer/blockMessages-reducer'
+import navBarReducer from './reducer/navbar-reducer'
+import findUsersReducer from './reducer/findUsers-reducer'
+import authReducer from './reducer/auth-reducer'
+import appReducer from './reducer/app-reducer'
 
 import thunkMiddleware from 'redux-thunk'
 

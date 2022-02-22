@@ -3,9 +3,9 @@ import {connect} from 'react-redux'
 import classes from './FindUsers.module.css';
 import Load from '../../common/Load'
 
-import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/FindUsers_reducer' 
-import { getPageSize,getTotalUsersCount,getCurrentPage ,getIsFetching ,getFollowingInProgress,getUsers} from '../../../redux/reducer/selectors/FindUsers-selectors'
-import {gg} from '../../../redux/reducer/Profile_reducer'
+import {getUsersThunk,unFollow,follow} from '../../../redux/reducer/findUsers-reducer' 
+import { getPageSize,getTotalUsersCount,getCurrentPage ,getIsFetching ,getFollowingInProgress,getUsers} from '../../../redux/reducer/selectors/findUsers-selectors'
+import {gg} from '../../../redux/reducer/profile-reducer'
 
 
 // import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
@@ -42,19 +42,8 @@ class UsersContainer extends React.Component {
     }
 }
 
-// let mapStateToProps = (state) => {
-//     return {
-//         findUsers: state.findUsers.Users,
-//         pageSize: state.findUsers.pageSize,
-//         totalUsersCount: state.findUsers.totalUsersCount,
-//         currentPage : state.findUsers.currentPage,
-//         isFetching : state.findUsers.isFetching,
-//         followingInProgress : state.findUsers.followingInProgress,
-//      }
-// }
-
 let mapStateToProps = (state) => {
-    console.log('mapStateToProps');
+
     return {
         findUsers : getUsers(state),pageSize : getPageSize(state),
         totalUsersCount : getTotalUsersCount(state),currentPage : getCurrentPage(state),

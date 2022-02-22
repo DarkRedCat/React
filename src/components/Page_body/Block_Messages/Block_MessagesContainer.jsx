@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import { compose } from 'redux';
-import {addMessage} from '../../../redux/reducer/Block_Messages_reducer' 
+import {addMessage} from '../../../redux/reducer/blockMessages-reducer' 
 import {withAuthRedirect} from '../../../hoc/withAuthRedirect'
 
 import Block_Messages from "./Block_Messages";
