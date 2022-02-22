@@ -4,7 +4,6 @@ import * as yup from 'yup'
 import classes from './LoginForm.module.css';
 
 
-
 const LoginForm = (props) => {
   let login = (values,submitProps) => {
     let formData = {
@@ -13,7 +12,7 @@ const LoginForm = (props) => {
       rememberMe: values.rememberMe
     }
     props.fun.login(formData,submitProps.setStatus);
-    setTimeout(() => {submitProps.resetForm()}, 100);
+    setTimeout(() => {submitProps.resetForm()}, 500);
   }
 
   const validationsSchema = yup.object().shape({
@@ -51,7 +50,7 @@ const LoginForm = (props) => {
             </div>
             <button className={classes.Loginbutton} disabled={disabled()} onClick={handleSubmit} type={`submit`}>Send</button>
 
-            {(props.props !== null) && !dirty &&<p className={classes.mainError}>{props.props}</p> }
+            {(props.isError !== null) && !dirty &&<p className={classes.mainError}>{props.isError}</p> }
           </div> 
          
         )}}

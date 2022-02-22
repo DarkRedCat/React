@@ -1,18 +1,18 @@
+import React  from 'react'
+import {Routes, Route} from "react-router-dom";
+import { connect } from 'react-redux';
+import {initializeApp} from './redux/reducer/app-reducer'
+import './App.css';
+
 import HeaderContainer from "./components/Header/HeaderContainer"
 import Nav from "./components/Nav/Nav"
-
-/*pages*/
 import ProfileContainer from "./components/Page_body/Profile/ProfileContainer"
 import BlockMessagesContainer from "./components/Page_body/Block_Messages/Block_MessagesContainer"
 import FindUsersContainer from "./components/Page_body/FindUsers/FindUsersContainer"
 import LoginContainer from './components/Page_body/Login/LoginContainer'
 import No from './components/Page_body/No/No'
 import Load from './components/common/Load'
-import React  from 'react'
-import './App.css';
-import {Routes, Route} from "react-router-dom";
-import { connect } from 'react-redux';
-import {initializeApp} from './redux/reducer/app-reducer'
+
 
 
 
