@@ -9,9 +9,9 @@ import reportWebVitals from './reportWebVitals';
 
 import store from './redux/redux_store';
 
-setInterval(() => {
-    store.dispatch({type: 'FAKE'})
-},1000)
+// setInterval(() => {
+//     store.dispatch({type: 'FAKE'})
+// },1000)
 
 ReactDOM.render(
   <React.StrictMode>

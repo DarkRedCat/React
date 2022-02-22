@@ -1,7 +1,7 @@
 
 import Load from '../../../common/Load'
 import classes from './ProfileInfo.module.css';
-import ProfileStatus from './ProfileStatus/ProfileStatus';
+import ProfileStatus from './ProfileStatus/ProfileStatusWithHooks';
 
 const Post = (props) => {
     if(!props.userState){return (<div className={classes.profileLoad}><Load props='div' /></div>)}
