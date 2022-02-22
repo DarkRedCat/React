@@ -12,7 +12,7 @@ import classes from './Profile.module.css'
 class UserProfileContainer extends React.Component {
   componentDidMount(){ 
     let userId =  this.props.fullprofilePage.gg
-    if(!userId ){userId = 228}
+    if(!userId ){userId = 2}
 
       this.props.getProfileG(userId)
       this.props.setUserStatusG(userId)
