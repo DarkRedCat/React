@@ -7,16 +7,16 @@ let  Users = (props)  =>{
 
   let fun = props.state.findUsers.map(u => {	
     let user = u
-    return <User userData={user} state={props.state}></User>
+    return <User key={user.id} userData={user} state={props.state}></User>
   })
   return(
     <>
       <Paginator state={props.state} />
-      <h1 className={classes.user_block_title}>Users</h1>
+      <h1 key={'red'} className={classes.user_block_title}>Users</h1>
       <div>{fun}</div>
 		</>
   )
 }
 	
 
-export default Users;
+export default Users; 

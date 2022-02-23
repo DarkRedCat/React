@@ -78,21 +78,26 @@ h2 ,h3,p {
   justify-content: space-between;
   align-items: flex-end;
 }
+
 .selectPage{
   display: inline;
-  margin-right: 5px;
+  margin: 0 5px;
   color:  white;
   cursor: pointer;
   user-select :none;
+ 
 }
-.selectPage div {
-  display: inline;
-  margin-left:5px ;
-  cursor:default;
-}
+
 .selectPage span.active{
   color: red;
 }
+.selectNum{
+  width: 38px;
+  border: 1px solid red;
+  text-align: center;
+  display: inline-block;
+}
+
 
 .BL{
   width: 10px;
@@ -103,4 +108,13 @@ h2 ,h3,p {
   transform: none;
   top: 0;left: 0;
   width: 100%;
+}
+
+.more_l{
+  margin-right: 10px;
+  cursor:default;
+}
+.more_r{
+  margin-left: 10px;
+  cursor:default;
 }

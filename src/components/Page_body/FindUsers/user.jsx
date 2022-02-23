@@ -6,7 +6,7 @@ import Load from '../../common/Load'
 
 let  Users = (props)  =>{
   return(
-      <div key={props.userData.id - 1} className={classes.wrapp}>
+      <div className={classes.wrapp}>
           <div className={classes.left}>
             <div className={classes.avatar}>
               <NavLink to={`/profile/id_${props.userData.id}`} onClick={() => {props.state.gg(props.userData.id)}}>{props.userData.photos.small 
