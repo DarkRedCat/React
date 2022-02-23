@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, {Suspense}  from 'react'
 import {Routes, Route} from "react-router-dom";
 import { connect } from 'react-redux';
 import {initializeApp} from './redux/reducer/app-reducer'
@@ -6,13 +6,15 @@ import './App.css';
 
 import HeaderContainer from "./components/Header/HeaderContainer"
 import Nav from "./components/Nav/Nav"
-import ProfileContainer from "./components/Page_body/Profile/ProfileContainer"
-import BlockMessagesContainer from "./components/Page_body/Block_Messages/Block_MessagesContainer"
-import FindUsersContainer from "./components/Page_body/FindUsers/FindUsersContainer"
-import LoginContainer from './components/Page_body/Login/LoginContainer'
-import No from './components/Page_body/No/No'
 import Load from './components/common/Load'
 
+
+import ProfileContainer from './components/Page_body/Profile/ProfileContainer'
+import LoginContainer from './components/Page_body/Login/LoginContainer'
+
+const BlockMessagesContainer = React.lazy(() =>  import('./components/Page_body/Block_Messages/Block_MessagesContainer'));
+const FindUsersContainer = React.lazy(() => import('./components/Page_body/FindUsers/FindUsersContainer'));
+const No = React.lazy(() => import('./components/Page_body/No/No'));
 
 
 
@@ -26,13 +28,20 @@ class  App extends React.Component{
         <HeaderContainer/>
         <Nav />
         <main className="pageBody__content">
-          <Routes>
-            <Route path={"/profile/*"} element={<ProfileContainer />}/>
-            <Route path="/messages/*" element={ <BlockMessagesContainer/>}/>
-            <Route path="/find_users/*" element={ <FindUsersContainer/>}/>
-            <Route path="/login" element={ <LoginContainer/>}/>
-            <Route path={"/no/"} element={<No/>}/><Route path={"/"} element={<No/>}/>
-          </Routes>
+         
+            <Routes>
+                <Route path="/profile/*" element={<ProfileContainer />}/>
+                <Route path="/login" element={<LoginContainer />}/>
+                <Route path="/messages/*" element={
+                  <Suspense fallback={ <div className='lb'><Load props={'div'}/></div>}><BlockMessagesContainer/></Suspense> }/>
+                <Route path="/find_users/*" element={
+                  <Suspense fallback={ <div className='lb'><Load props={'div'}/></div>}><FindUsersContainer/></Suspense> }/>
+                <Route path={"/no/"} element={
+                  <Suspense fallback={ <div className='lb'><Load props={'div'}/></div>}><No/></Suspense> }/>
+                <Route path={"/"} element={
+                  <Suspense fallback={ <div className='lb'><Load props={'div'}/></div>}><No/></Suspense> }/>
+            </Routes>
+        
         </main>
       </div>
    );

@@ -23,6 +23,7 @@ body{
 
 }
 .pageBody__content{
+  position: relative;
   border: 1px solid red;
   grid-area: main;
 }
@@ -32,4 +33,8 @@ body{
 }
 .blue{
   color: blue;
+}
+
+.lb div{
+  height: 100%;
 }

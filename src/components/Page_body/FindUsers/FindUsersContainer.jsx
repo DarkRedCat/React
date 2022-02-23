@@ -13,7 +13,8 @@ import {compose} from 'redux'
 import FindUsers from './FindUsers'
 class UsersContainer extends React.Component {
     
-    componentDidMount(){this.props.getUsersThunk(this.props.currentPage,this.props.pageSize)}
+    componentDidMount(){
+        this.props.getUsersThunk(this.props.currentPage,this.props.pageSize)}
     onPageChanged= pageNumber =>{this.props.getUsersThunk(pageNumber,this.props.pageSize)}
 
     render() { 
@@ -47,7 +48,7 @@ let mapStateToProps = (state) => {
     return {
         findUsers : getUsers(state),pageSize : getPageSize(state),
         totalUsersCount : getTotalUsersCount(state),currentPage : getCurrentPage(state),
-        isFetching : getIsFetching(state),followingInProgress : getFollowingInProgress(state),      
+        isFetching : getIsFetching(state),followingInProgress : getFollowingInProgress(state),   
      }
 }
 
